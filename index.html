@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Configure Tailwind for custom font (Inter) -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght=100..900&display=swap');
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f7f9fc;
@@ -21,6 +21,14 @@
             background-color: currentColor;
             -webkit-mask-size: cover;
             mask-size: cover;
+        }
+        /* Custom scrollbar style for the modal */
+        #caseStudyContent::-webkit-scrollbar {
+            width: 8px;
+        }
+        #caseStudyContent::-webkit-scrollbar-thumb {
+            background-color: #4f46e5;
+            border-radius: 4px;
         }
     </style>
     <script>
@@ -65,7 +73,7 @@
                 Design for Context, Not Constraints
             </h2>
             <p class="text-xl opacity-90 mb-8 max-w-3xl mx-auto">
-                Your central repository for best practices, research, and tools for building truly **adaptive user experiences** that respond intelligently to user context, environment, and intent.
+                Your central repository for best practices, research, and tools for building truly <strong>adaptive user experiences</strong> that respond intelligently to user context, environment, and intent.
             </p>
             <a href="#principles" class="inline-block bg-white text-primary-indigo font-semibold py-3 px-8 rounded-xl shadow-lg hover:bg-secondary-gray transition duration-300 transform hover:scale-105">
                 Explore the Core Principles &rarr;
@@ -121,25 +129,25 @@
             </h3>
             <div class="grid md:grid-cols-3 gap-8">
 
-                <!-- Case Study 1 -->
+                <!-- Case Study 1 - Amazon Predictive Personalization (Replaced Netflix) -->
                 <article class="bg-secondary-gray p-5 rounded-xl shadow hover:shadow-lg transition duration-300">
-                    <h4 class="text-xl font-semibold mb-2">E-Commerce Checkout Flow</h4>
-                    <p class="text-gray-700 text-sm mb-4">How adapting payment options based on detected geo-location and network strength drastically improved conversion rates.</p>
-                    <a href="#" class="text-primary-indigo font-medium text-sm hover:underline">Read Full Analysis &rarr;</a>
+                    <h4 class="text-xl font-semibold mb-2">Amazon: Predictive UI Personalization</h4>
+                    <p class="text-gray-700 text-sm mb-4">How AI-driven predictive modeling curates the home screen and search results to anticipate purchase intent.</p>
+                    <button onclick="showCaseStudy('ecommerce')" class="text-primary-indigo font-medium text-sm hover:underline cursor-pointer data-id="ecommerce">Read Full Analysis &rarr;</button>
                 </article>
 
-                <!-- Case Study 2 -->
+                <!-- Case Study 2 - Spotify Dynamic Home -->
                 <article class="bg-secondary-gray p-5 rounded-xl shadow hover:shadow-lg transition duration-300">
-                    <h4 class="text-xl font-semibold mb-2">News App Dynamic Layout</h4>
-                    <p class="text-gray-700 text-sm mb-4">A look at how a major news application shifts content density and media quality based on the user's current mode (driving vs. reading).</p>
-                    <a href="#" class="text-primary-indigo font-medium text-sm hover:underline">Read Full Analysis &rarr;</a>
+                    <h4 class="text-xl font-semibold mb-2">Spotify: Goal-Based Content Curation</h4>
+                    <p class="text-gray-700 text-sm mb-4">A look at how the home screen adapts content based on time of day, location, and detected user activity.</p>
+                    <button onclick="showCaseStudy('newsapp')" class="text-primary-indigo font-medium text-sm hover:underline cursor-pointer data-id="newsapp">Read Full Analysis &rarr;</button>
                 </article>
 
-                <!-- Case Study 3 -->
+                <!-- Case Study 3 - Google Maps Driving Mode -->
                 <article class="bg-secondary-gray p-5 rounded-xl shadow hover:shadow-lg transition duration-300">
-                    <h4 class="text-xl font-semibold mb-2">Enterprise Software for Field Agents</h4>
-                    <p class="text-gray-700 text-sm mb-4">Study on streamlining complex data entry forms when low light and gloves are detected in an industrial environment.</p>
-                    <a href="#" class="text-primary-indigo font-medium text-sm hover:underline">Read Full Analysis &rarr;</a>
+                    <h4 class="text-xl font-semibold mb-2">Google Maps: Intent-Driven UI Scaling</h4>
+                    <p class="text-gray-700 text-sm mb-4">Study on streamlining interaction and magnifying targets when a user's mode is detected as high-distraction (e.g., driving).</p>
+                    <button onclick="showCaseStudy('fieldagent')" class="text-primary-indigo font-medium text-sm hover:underline cursor-pointer data-id="fieldagent">Read Full Analysis &rarr;</button>
                 </article>
 
             </div>
@@ -202,19 +210,156 @@
         </div>
     </footer>
 
+    <!-- Case Study Modal (Hidden by default) -->
+    <div id="caseStudyModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 z-50 flex justify-center items-center p-4 hidden transition-opacity duration-300">
+        <div class="bg-white w-full max-w-4xl max-h-[90vh] rounded-xl shadow-2xl flex flex-col transform transition-all duration-300 scale-95 opacity-0" id="modalContent">
+            
+            <!-- Modal Header -->
+            <div class="p-6 border-b border-gray-200 flex justify-between items-center sticky top-0 bg-white rounded-t-xl">
+                <h2 id="caseStudyTitle" class="text-2xl font-bold text-primary-indigo-dark">Case Study Title</h2>
+                <button onclick="hideCaseStudy()" class="text-gray-500 hover:text-gray-800 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <!-- Modal Body (Scrollable) -->
+            <div id="caseStudyContent" class="p-6 overflow-y-auto flex-grow text-gray-700 space-y-4">
+                <!-- Content will be injected here -->
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-4 border-t border-gray-200 text-right sticky bottom-0 bg-white rounded-b-xl">
+                 <button onclick="hideCaseStudy()" class="bg-primary-indigo text-white font-semibold py-2 px-6 rounded-full shadow-md hover:bg-primary-indigo-dark transition duration-300">Close</button>
+            </div>
+
+        </div>
+    </div>
+
+
     <script>
-        // Set current year in the footer
+        // Store detailed case study data in a JavaScript object
+        const caseStudies = {
+            ecommerce: { // Amazon Predictive Personalization
+                title: "Amazon: Predictive Search and UI Personalization",
+                content: `
+                    <h4 class="text-xl font-semibold mt-4 mb-2 text-primary-indigo">Challenge & Context</h4>
+                    <p>Amazon deals with millions of products and billions of browsing patterns. The core challenge is reducing friction between <em>intent</em> and <em>purchase</em> by anticipating the user's need the moment they land on the page or begin typing.</p>
+
+                    <h4 class="text-xl font-semibold mt-4 mb-2 text-primary-indigo">Adaptive Solution Implemented (AI-Driven Prediction)</h4>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li><strong>Predictive Interface Curation:</strong> The homepage layout adapts based on historical data, local inventory, and time of day. For example, if a user often buys groceries on Sunday mornings, grocery recommendations and shortcuts appear instantly, minimizing navigation time.</li>
+                        <li><strong>Zero-Input Search Suggestions:</strong> The search bar actively uses predictive models based on <em>in-session behavior</em> to suggest entire product categories or previously viewed items before the user types the second letter, significantly reducing key presses.</li>
+                        <li><strong>Dynamically Adjusted Content Density:</strong> On product pages, the placement of the "Buy Now" button, shipping estimates, and related products is constantly A/B tested and adapted based on real-time success metrics to optimize the path to purchase for that specific user segment.</li>
+                    </ul>
+                    
+                    <h4 class="text-xl font-semibold mt-4 mb-2 text-primary-indigo">Outcome & Impact</h4>
+                    <p>This predictive modeling leads directly to massive revenue gains. By cutting down decision time and eliminating unnecessary clicks, Amazon enhances the user experience and maximizes transaction volume. This adaptive approach is core to their multi-billion dollar recommendation engine.</p>
+                    <p class="text-xs italic mt-4"><strong>Source:</strong> <a href="https://www.amazon.science/" target="_blank" class="text-primary-indigo hover:underline">Amazon Science / Engineering Resources</a> (focusing on machine learning applications in e-commerce).</p>
+                `
+            },
+            newsapp: { // Spotify
+                title: "Spotify: Contextual Goal-Based Home Screen Curation",
+                content: `
+                    <h4 class="text-xl font-semibold mt-4 mb-2 text-primary-indigo">Challenge & Context</h4>
+                    <p>Spotify users have different listening needs throughout the day (morning workout, afternoon work focus, evening relaxation). The UX challenge is predicting and presenting the most relevant music/podcasts for their current moment without needing explicit input.</p>
+
+                    <h4 class="text-xl font-semibold mt-4 mb-2 text-primary-indigo">Adaptive Solution Implemented (Intent & Time Adaptation)</h4>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li><strong>Time of Day Re-prioritization:</strong> The home screen layout and content blocks are dynamically ordered based on the local time. For example, in the morning, <strong>workout playlists</strong> or <strong>news podcasts</strong> may appear at the top. In the evening, calming <strong>sleep playlists</strong> or <strong>audiobooks</strong> rise to the top.</li>
+                        <li><strong>Activity Sensing:</strong> Using implicit signals (like quick switching between tracks, or listening to specific BPM music), the interface may surface personalized content cards like "Ready for your run?"</li>
+                        <li><strong>Search Suggestion Adaptation:</strong> Search queries and recent searches adapt to predicted intent. If it's a Friday evening, search might prioritize "party playlists" or "new releases" over "focus music."</li>
+                    </ul>
+                    
+                    <h4 class="text-xl font-semibold mt-4 mb-2 text-primary-indigo">Outcome & Impact</h4>
+                    <p>This personalization drives higher engagement. By reducing the <strong>cognitive load</strong> required to find the <em>right</em> music for the <em>right</em> moment, Spotify increases the speed at which users start listening, directly impacting daily active user metrics.</p>
+                    <p class="text-xs italic mt-4"><strong>Source:</strong> <a href="https://engineering.spotify.com/" target="_blank" class="text-primary-indigo hover:underline">Spotify Engineering and Design Blogs</a> (covering context-aware personalization models).</p>
+                `
+            },
+            fieldagent: { // Google Maps
+                title: "Google Maps: Intent-Driven UI Scaling (Driving Mode)",
+                content: `
+                    <h4 class="text-xl font-semibold mt-4 mb-2 text-primary-indigo">Challenge & Context</h4>
+                    <p>When a user is actively navigating a vehicle, their attention is a high-cost resource. The primary UX goal shifts from information exploration to <strong>safety</strong> and <strong>minimal distraction</strong> via low-input interactions.</p>
+
+                    <h4 class="text-xl font-semibold mt-4 mb-2 text-primary-indigo">Adaptive Solution Implemented (Environmental Adaptation)</h4>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li><strong>Intent Detection:</strong> The system automatically transitions to a simplified "Driving Mode" when it detects rapid, sustained horizontal speed, or when the user initiates navigation.</li>
+                        <li><strong>Interaction Magnification:</strong> All interactive elements, such as buttons for canceling navigation or changing views, are dramatically <strong>enlarged</strong> and spaced farther apart to accommodate coarse motor control and ensure safe, successful touch targets (reducing Fitts's Law penalty).</li>
+                        <li><strong>Information Density Reduction:</strong> Non-essential elements (like detailed POI information or promotional cards) are hidden. The display prioritizes only the next two required actions and essential safety alerts.</li>
+                    </ul>
+                    
+                    <h4 class="text-xl font-semibold mt-4 mb-2 text-primary-indigo">Outcome & Impact</h4>
+                    <p>This adaptation maximizes <strong>usability under high cognitive load</strong>, ensuring that necessary interactions can be completed quickly and safely. The design implicitly acknowledges the real-world safety constraints imposed by the user's current environment (driving).</p>
+                    <p class="text-xs italic mt-4"><strong>Source:</strong> <a href="https://design.google/library/" target="_blank" class="text-primary-indigo hover:underline">Google Design / Developer Resources</a> (discussing interface safety and adaptive input).</p>
+                `
+            }
+        };
+
+        // --- Core JavaScript Functions (unchanged but necessary for functionality) ---
+        
+        // Function to set the current year in the footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // Smooth scrolling for navigation links
+        // Function for smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (targetElement) {
+                     targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
+
+        // Function to show the modal with the case study content
+        function showCaseStudy(id) {
+            const study = caseStudies[id];
+            if (!study) return;
+
+            const modal = document.getElementById('caseStudyModal');
+            const modalContent = document.getElementById('modalContent');
+            
+            document.getElementById('caseStudyTitle').innerHTML = study.title;
+            document.getElementById('caseStudyContent').innerHTML = study.content;
+            
+            // Show modal background
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden'); // Prevent background scrolling
+
+            // Apply transition classes after a slight delay to trigger CSS transition
+            setTimeout(() => {
+                modal.classList.add('opacity-100');
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        // Function to hide the modal
+        function hideCaseStudy() {
+            const modal = document.getElementById('caseStudyModal');
+            const modalContent = document.getElementById('modalContent');
+
+            // Apply transition classes to reverse the effect
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            modal.classList.remove('opacity-100');
+            
+            // Hide modal after transition
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden'); // Restore background scrolling
+            }, 300); // Match transition duration
+        }
+
+        // Close modal when clicking outside of the content area
+        document.getElementById('caseStudyModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                hideCaseStudy();
+            }
+        });
+
     </script>
 </body>
 </html>
