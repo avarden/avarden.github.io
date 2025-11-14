@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptive UX: The Context-Aware Design Hub</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for custom font (Inter) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+        }
+        .icon {
+            display: inline-block;
+            width: 1.5rem;
+            height: 1.5rem;
+            /* Simple placeholder style */
+            background-color: currentColor;
+            -webkit-mask-size: cover;
+            mask-size: cover;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-indigo': '#4f46e5',
+                        'primary-indigo-dark': '#4338ca',
+                        'secondary-gray': '#e5e7eb',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navigation Header -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-primary-indigo">
+                Adaptive UX Hub
+            </h1>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#principles" class="text-gray-600 hover:text-primary-indigo transition duration-150">Principles</a>
+                <a href="#case-studies" class="text-gray-600 hover:text-primary-indigo transition duration-150">Case Studies</a>
+                <a href="#tools" class="text-gray-600 hover:text-primary-indigo transition duration-150">Tools</a>
+                <a href="#contribute" class="text-primary-indigo border border-primary-indigo px-4 py-1 rounded-full hover:bg-primary-indigo hover:text-white transition duration-150">Contribute</a>
+            </nav>
+            <!-- Mobile Menu Button (simplified, not functional) -->
+            <button class="md:hidden text-gray-600 hover:text-primary-indigo text-xl">
+                &#9776;
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-primary-indigo text-white py-16 md:py-24 shadow-xl">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
+                Design for Context, Not Constraints
+            </h2>
+            <p class="text-xl opacity-90 mb-8 max-w-3xl mx-auto">
+                Your central repository for best practices, research, and tools for building truly **adaptive user experiences** that respond intelligently to user context, environment, and intent.
+            </p>
+            <a href="#principles" class="inline-block bg-white text-primary-indigo font-semibold py-3 px-8 rounded-xl shadow-lg hover:bg-secondary-gray transition duration-300 transform hover:scale-105">
+                Explore the Core Principles &rarr;
+            </a>
+        </div>
+    </section>
+
+    <!-- Core Principles Section -->
+    <section id="principles" class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <h3 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-primary-indigo-dark">
+                The Adaptive UX Framework
+            </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- Principle 1: Context Awareness -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-primary-indigo">
+                    <span class="text-primary-indigo text-3xl mb-3 block" aria-hidden="true">&#9889;</span>
+                    <h4 class="text-xl font-semibold mb-3">Context Awareness</h4>
+                    <p class="text-gray-600 text-sm">Design must dynamically sense and react to user state (location, time, device, network speed, intent).</p>
+                </div>
+
+                <!-- Principle 2: Personalization -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-primary-indigo">
+                    <span class="text-primary-indigo text-3xl mb-3 block" aria-hidden="true">&#127775;</span>
+                    <h4 class="text-xl font-semibold mb-3">Goal-Based Personalization</h4>
+                    <p class="text-gray-600 text-sm">Experiences should optimize for the user's current goal, adjusting information hierarchy and features on the fly.</p>
+                </div>
+
+                <!-- Principle 3: Scalability -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-primary-indigo">
+                    <span class="text-primary-indigo text-3xl mb-3 block" aria-hidden="true">&#128640;</span>
+                    <h4 class="text-xl font-semibold mb-3">Performance & Scalability</h4>
+                    <p class="text-gray-600 text-sm">Ensure adaptations are fast, seamless, and don't introduce performance bottlenecks or cumulative layout shifts.</p>
+                </div>
+
+                <!-- Principle 4: User Control -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-primary-indigo">
+                    <span class="text-primary-indigo text-3xl mb-3 block" aria-hidden="true">&#9881;</span>
+                    <h4 class="text-xl font-semibold mb-3">Transparency & Control</h4>
+                    <p class="text-gray-600 text-sm">Users must understand *why* the interface changed and have options to override or customize adaptive behavior.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="bg-white py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <h3 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-primary-indigo-dark">
+                Real-World Adaptive Case Studies
+            </h3>
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <!-- Case Study 1 -->
+                <article class="bg-secondary-gray p-5 rounded-xl shadow hover:shadow-lg transition duration-300">
+                    <h4 class="text-xl font-semibold mb-2">E-Commerce Checkout Flow</h4>
+                    <p class="text-gray-700 text-sm mb-4">How adapting payment options based on detected geo-location and network strength drastically improved conversion rates.</p>
+                    <a href="#" class="text-primary-indigo font-medium text-sm hover:underline">Read Full Analysis &rarr;</a>
+                </article>
+
+                <!-- Case Study 2 -->
+                <article class="bg-secondary-gray p-5 rounded-xl shadow hover:shadow-lg transition duration-300">
+                    <h4 class="text-xl font-semibold mb-2">News App Dynamic Layout</h4>
+                    <p class="text-gray-700 text-sm mb-4">A look at how a major news application shifts content density and media quality based on the user's current mode (driving vs. reading).</p>
+                    <a href="#" class="text-primary-indigo font-medium text-sm hover:underline">Read Full Analysis &rarr;</a>
+                </article>
+
+                <!-- Case Study 3 -->
+                <article class="bg-secondary-gray p-5 rounded-xl shadow hover:shadow-lg transition duration-300">
+                    <h4 class="text-xl font-semibold mb-2">Enterprise Software for Field Agents</h4>
+                    <p class="text-gray-700 text-sm mb-4">Study on streamlining complex data entry forms when low light and gloves are detected in an industrial environment.</p>
+                    <a href="#" class="text-primary-indigo font-medium text-sm hover:underline">Read Full Analysis &rarr;</a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools & Resources Section -->
+    <section id="tools" class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <h3 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-primary-indigo-dark">
+                Tools, Libraries, and Techniques
+            </h3>
+            <ul class="max-w-3xl mx-auto space-y-4">
+                <li class="bg-white p-4 rounded-lg shadow border-l-4 border-indigo-400 flex justify-between items-center">
+                    <div>
+                        <span class="font-bold">Contextual Data Hooks</span>
+                        <p class="text-gray-600 text-sm">A library for querying and subscribing to device environment signals (battery, speed, orientation).</p>
+                    </div>
+                    <a href="#" class="text-primary-indigo font-medium text-sm hover:underline">View on GitHub</a>
+                </li>
+                <li class="bg-white p-4 rounded-lg shadow border-l-4 border-indigo-400 flex justify-between items-center">
+                    <div>
+                        <span class="font-bold">The Progressive Enhancement Model</span>
+                        <p class="text-gray-600 text-sm">A detailed guide on architecting adaptive systems from a baseline-first approach.</p>
+                    </div>
+                    <a href="#" class="text-primary-indigo font-medium text-sm hover:underline">Read Article</a>
+                </li>
+                <li class="bg-white p-4 rounded-lg shadow border-l-4 border-indigo-400 flex justify-between items-center">
+                    <div>
+                        <span class="font-bold">ML for UX: Prediction Interfaces</span>
+                        <p class="text-gray-600 text-sm">Tutorial on integrating predictive models to anticipate user needs before an action is taken.</p>
+                    </div>
+                    <a href="#" class="text-primary-indigo font-medium text-sm hover:underline">Watch Tutorial</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contribution CTA Footer Section -->
+    <section id="contribute" class="bg-primary-indigo py-16">
+        <div class="max-w-5xl mx-auto px-6 text-center text-white">
+            <h3 class="text-3xl font-bold mb-4">Help Us Grow This Resource</h3>
+            <p class="text-lg mb-6 opacity-90">
+                Adaptive UX is constantly evolving. Submit your articles, case studies, or open-source tools to expand the Hub!
+            </p>
+            <a href="mailto:contribute@adaptiveuxhub.com" class="inline-block bg-white text-primary-indigo font-semibold py-3 px-8 rounded-xl shadow-lg hover:bg-secondary-gray transition duration-300 transform hover:scale-105">
+                Get in Touch
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center text-sm">
+            <p>&copy; <span id="current-year"></span> Adaptive UX Hub. All rights reserved.</p>
+            <div class="mt-2 space-x-4">
+                <a href="#" class="hover:text-primary-indigo transition">Privacy Policy</a>
+                <a href="#" class="hover:text-primary-indigo transition">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
